@@ -1,0 +1,5 @@
+bower_components/
+.git/
+node_modules/
+npm-shrinkwrap.json
+www/lib

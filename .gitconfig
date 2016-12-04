@@ -1,0 +1,9 @@
+[user]
+    name = Charron, Tom
+    email = tom.charron@verizon.net
+[core]
+    editor = mvim -f
+[push]
+    default = matching
+[alias]
+    lg = log --pretty=format:'%Cblue%h%Creset - %s%Cgreen [%cn]%C(cyan)%d' --decorate -10
