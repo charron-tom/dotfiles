@@ -1,5 +1,5 @@
-"
-" This is my .vimrc
+r
+" This is my .vimrc. Take it or leave it
 "
 filetype plugin indent on
 
@@ -18,10 +18,10 @@ set mouse=a       " Enable use of mouse for all modes
 set autoindent    " Keep the same indent as the line you're currently on(Useful for README's etc.)
 
 " Indentation settings for using 4 spaces instead of tabs.
-set shiftwidth=4 
-set softtabstop=4 
-set expandtab 
-set smarttab
+set softtabstop=2 
+set expandtab
+set shiftwidth=2 
+" set smarttab
 
 " Open new split panes to the right and bottom which feels more natural
 set splitbelow 
@@ -33,7 +33,7 @@ set list listchars=tab:»·,trail:·,nbsp:·
 " Make it obvious where 80 chars is
 set textwidth=80
 set colorcolumn=+1
-set nowrap
+" set nowrap
 
 " Use system clipboard
 set clipboard=unnamed
@@ -72,13 +72,13 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
-colorscheme tender
+colorscheme lucario
 let g:airline_theme = 'tender'
 let macvim_skip_colorscheme=1
 
-""""""""""
-" NERDTree
-""""""""""
+"""""""""""""""""""""""""
+" Begin NERDTree config
+"""""""""""""""""""""""""
 
 " Let Ctrl+n toggle NERDTree 
 map <C-n> :NERDTreeToggle<CR>
@@ -92,22 +92,24 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " Ignore .pyc files in NERDTree
 let NERDTreeIgnore = ['\.pyc$']
 
-"""""
-" Ack
-"""""
+"""""""""""""""""""""""""
+" Begin ack config
+"""""""""""""""""""""""""
 " Use ag instead of ack for searching
 let g:ackprg = 'ag --vimgrep'
 
-""""""""
-" Tagbar
-""""""""
+"""""""""""""""""""""""""
+" Begin vim-airline config
+"""""""""""""""""""""""""
+" let g:airline_section_c = '%{getcwd()}'
+"""""""""""""""""""""""""
+" Begin tagbar config
+"""""""""""""""""""""""""
 
 " Let Ctrl+t toggle tagbar
 map <C-t> :TagbarToggle<CR>
 
-""""""""""""""""""
-" Obsolete for now
-""""""""""""""""""
+" OBSOLTE FOR NOW "
 
 " Key mappings
 "map <C-p>o :CtrlP<CR>
@@ -119,7 +121,11 @@ map <C-t> :TagbarToggle<CR>
 "nnoremap <C-S-T> :tabprevious<CR>
 "nnoremap <C-T>   :tabnext<CR>
 
+" shortcut to write file and get back to the spot in insert mode
+"imap jw <Esc>:w <CR>a
+
 "inoremap <C-S-T> <Esc>:tabprevious<CR>i
 "inoremap <C-T>   <Esc>:tabnext<CR>i
+
 
 "let g:ctrlp_cmd = 'CtrlPMRUFiles'

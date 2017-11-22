@@ -15,10 +15,12 @@ Plugin 'majutsushi/tagbar'              " Code tags/navigation
 Plugin 'bling/vim-airline'              " Useful bar at the bottom
 Plugin 'tpope/vim-fugitive'             " Git wrapper
 Plugin 'plasticboy/vim-markdown'        " Markdown syntax highlighting
+Plugin 'posva/vim-vue'                  " Vue.js highlighting
 Plugin 'Valloric/YouCompleteMe'         " Autocompleting variables
 
 " Color schemes
 Plugin 'jacoborus/tender'
 Plugin 'fcevado/molokai_dark'
+Plugin 'raphamorim/lucario'
 
 call vundle#end()
