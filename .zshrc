@@ -123,4 +123,3 @@ function lintj() {
 }
 
 source /usr/local/bin/virtualenvwrapper.sh
-source /Users/thomascharron/Workspace/infrav3/aliases.sh
