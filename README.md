@@ -2,14 +2,24 @@
 
 A Git repository designed to track my dotfiles.
 
+## Prerequisites
+
+* Oh My Zsh
+* virtualenvwrapper
+* nvm
+* bullet train ZSH plugin
+
 ## Contents
 
 * .agignore
 * .bash_profile
 * .gitconfig
+* .tmux.conf
+* .tmux.conf.local
 * .vimrc
 * .vimrc.bundles
 * init.sh
+* .zshrc
 
 
 ## Installation
