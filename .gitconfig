@@ -1,9 +1,9 @@
 [user]
-    name = Charron, Tom
-    email = tom.charron@verizon.net
-[core]
-    editor = mvim -f
+    name = Thomas Charron
+    email = thomas.charron@bitsighttech.com
 [push]
     default = matching
 [alias]
     lg = log --pretty=format:'%Cblue%h%Creset - %s%Cgreen [%cn]%C(cyan)%d' --decorate -10
+[core]
+    editor = vim

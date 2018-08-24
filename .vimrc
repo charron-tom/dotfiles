@@ -1,4 +1,3 @@
-r
 " This is my .vimrc. Take it or leave it
 "
 filetype plugin indent on
@@ -50,7 +49,7 @@ set wildignore+=*/bin/**
 
 " Use the .vimrc.bundles file to load all Vundle plugins
 if filereadable(expand("~/.vimrc.bundles"))
-  source ~/.vimrc.bundles
+	source ~/.vimrc.bundles
 endif
 
 " Dont throw those annoying messages when w or q is accidentally capitalized
@@ -72,9 +71,9 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
-colorscheme lucario
-let g:airline_theme = 'tender'
-let macvim_skip_colorscheme=1
+colorscheme onehalfdark
+let g:airline_theme='onehalfdark'
+" let macvim_skip_colorscheme=1
 
 """""""""""""""""""""""""
 " Begin NERDTree config
@@ -83,14 +82,8 @@ let macvim_skip_colorscheme=1
 " Let Ctrl+n toggle NERDTree 
 map <C-n> :NERDTreeToggle<CR>
 
-" Automatically start NERDTree when vim is opened
-"autocmd vimenter * NERDTree
-
-" Close vim if NERDTree is the only window open
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-" Ignore .pyc files in NERDTree
-let NERDTreeIgnore = ['\.pyc$']
+" Open NERDTree to directory of file not current directory
+autocmd BufEnter * lcd %:p:h
 
 """""""""""""""""""""""""
 " Begin ack config
@@ -112,20 +105,22 @@ map <C-t> :TagbarToggle<CR>
 " OBSOLTE FOR NOW "
 
 " Key mappings
-"map <C-p>o :CtrlP<CR>
-"map gm :call cursor(0, len(getline('.'))/2)<CR>
+" map <C-p>o :CtrlP<CR>
+" map gm :call cursor(0, len(getline('.'))/2)<CR>
 
 " go directly to line numbers in normal mode when numbers then
 " enter is typed
-"nnoremap <CR> G
-"nnoremap <C-S-T> :tabprevious<CR>
-"nnoremap <C-T>   :tabnext<CR>
+" nnoremap <CR> G
+" nnoremap <C-S-T> :tabprevious<CR>
+" nnoremap <C-T>   :tabnext<CR>
 
 " shortcut to write file and get back to the spot in insert mode
-"imap jw <Esc>:w <CR>a
+" imap jw <Esc>:w <CR>a
 
-"inoremap <C-S-T> <Esc>:tabprevious<CR>i
-"inoremap <C-T>   <Esc>:tabnext<CR>i
+" inoremap <C-S-T> <Esc>:tabprevious<CR>i
+" inoremap <C-T>   <Esc>:tabnext<CR>i
 
 
-"let g:ctrlp_cmd = 'CtrlPMRUFiles'
+" let g:ctrlp_cmd = 'CtrlPMRUFiles'
+"
+let g:vimrubocop_config = '~/Workspace/chef/.rubocop.yml'

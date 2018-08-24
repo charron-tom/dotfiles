@@ -22,5 +22,10 @@ Plugin 'Valloric/YouCompleteMe'         " Autocompleting variables
 Plugin 'jacoborus/tender'
 Plugin 'fcevado/molokai_dark'
 Plugin 'raphamorim/lucario'
+Plugin 'marciomazza/vim-brogrammer-theme'
+Plugin 'sonph/onehalf', {'rtp': 'vim/'}
+
+" Why not
+" Plugin 'ngmy/vim-rubocop'
 
 call vundle#end()

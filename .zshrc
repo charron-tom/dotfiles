@@ -1,16 +1,25 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH="$HOME/virtualenvs/bskube/bin:/usr/local/bin:$PATH"
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/tcharron/.oh-my-zsh
+export ZSH="/Users/thomascharron/.oh-my-zsh"
+export BULLETTRAIN_KCTX_KCONFIG="$HOME/.kube/config"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="bullet-train"
 
+# Set list of themes to load
+# Setting this variable when ZSH_THEME=random
+# cause zsh load theme from this variable instead of
+# looking in ~/.oh-my-zsh/themes/
+# An empty array have no effect
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+
 # Uncomment the following line to use case-sensitive completion.
-CASE_SENSITIVE="true"
+# CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
@@ -20,7 +29,7 @@ CASE_SENSITIVE="true"
 # DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
-export UPDATE_ZSH_DAYS=13
+# export UPDATE_ZSH_DAYS=13
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -29,10 +38,10 @@ export UPDATE_ZSH_DAYS=13
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-#COMPLETION_WAITING_DOTS="true"
+# COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -51,38 +60,32 @@ ENABLE_CORRECTION="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-extras jira npm osx virtualenvwrapper web-search)
+plugins=(
+  brew,
+  django,
+  docker,
+  gitfast,
+  git-extras,
+  jira,
+  mvn,
+  tmux,
+  virtualenvwrapper,
+  yarn
+)
 
 source $ZSH/oh-my-zsh.sh
-
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
-export ORACLE_HOME=/usr/local/oracle/instantclient_11_2
-export NO_PROXY=localhost,127.0.0.1
-export HTTP_PROXY=http://gatekeeper.mitre.org:80
-export HTTPS_PROXY=$HTTP_PROXY
-
-export JIRA_URL=https://jira.cit.mitre.org/
-export JIRA_RAPID_BOARD=true
-export JIRA_DEFAULT_ACTION=dashboard
-
-function getSpotifyStatus {
-    track=`spotify info | perl -n -e '/^Track:\s*([a-zA-z0-9\x27 \x27.\x27(\x27)\x27&]*)\s/ && print $1'`
-    artist=`spotify info | perl -n -e '/^Artist:\s*([a-zA-z0-9\x27 \x27.\x27(\x27)]*)\s/ && print $1'`
-    echo "$icon $artist - $track"
-}
-
-#export BULLETTRAIN_CUSTOM_MSG="\$(getSpotifyStatus)"
-#export BULLETTRAIN_CUSTOM_BG=green
-#export BULLETTRAIN_CUSTOM_FG=black
-
-BULLETTRAIN_NVM_BG=yellow
-BULLETTRAIN_NVM_FG=black
+export KUBE_ENV_DISABLE_PROMPT=1
+export PYTHONDONTWRITEBYTECODE=1
+export NVM_DIR="$HOME/.nvm"
+export WORKON_HOME="$HOME/virtualenvs"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
+source $NVM_DIR/nvm.sh
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
@@ -104,61 +107,20 @@ BULLETTRAIN_NVM_FG=black
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias gp="git push origin $(git branch | grep "*" | awk '{print $2}')"
+alias portal="cd $HOME/Workspace/portal"
+alias s3="aws s3"
+alias vim="mvim -v"
+alias work="cd $HOME/Workspace"
+alias gco="git checkout"
+alias gup="git fetch origin --prune && git pull origin master"
 
-# Use macvim instead of vim
-alias vim="mvim"
-
-# Frequently used projects/places
-alias akd='cd ~/Workspace/akd'
-alias employeeshare='cd /Volumes/tcharron'
-alias pp='cd ~/Workspace/projects'
-alias qwf="cd ~/Workspace/qwf"
-alias sandbox='cd ~/Sandbox'
-alias work='cd ~/Workspace'
-
-# SSH aliases
-alias appdev1='ssh appdev1'
-alias appint1='ssh appint1'
-alias dvm='ssh dockervm'
-alias tcappdev1='ssh tcappdev1'
-alias tcappdev2='ssh tcappdev2'
-alias tcappint1='ssh tcappint1'
-alias tcappint2='ssh tcappint2'
-alias tcharron='ssh tcharron'
-
-# Docker logs
-alias dpl='ssh docker'
-alias dil='ssh docker-i'
-alias ddl='ssh docker-d'
-
-# Misc
-alias c='clear'
-alias env='env | sort'
-
-unalias sp
-alias sp='spotify'
-
-
-function sync(){
-    DIR_NAME="${PWD##*/}";
-    rsync -azp --delete --filter=":- .gitignore" . "dockervm:/home/tcharron/${DIR_NAME}"
+function pep() {
+  git diff -w master | pep8 --diff --max-line-length=100 | grep -v migrations $@
+}
+function lintj() {
+  mvn checkstyle:checkstyle -Dcheckstyle.includes="$@"
 }
 
-function fixPerms ()
-{
-    echo " [x] Fixing the permissions for this folder and all its subfolders.";
-    find . -type f -exec chmod 644 {} + && find . -type f -name "*.sh" -exec chmod 755 {} + && find . -type d -exec chmod 755 {} +
-}
-
-# Helper function to move files I'm not quite sure I'm ready to delete
-# But also don't want hanging around
-function toss ()
-{
-    mv $@ ~/Desktop/.throwaway
-}
-
-# Helper function to remove all .pyc files from the cwd
-function cpyc () 
-{
-    find ${PWD} -name "*pyc" | xargs rm -rf
-}
+source /usr/local/bin/virtualenvwrapper.sh
+source /Users/thomascharron/Workspace/infrav3/aliases.sh
