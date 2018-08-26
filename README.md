@@ -9,7 +9,7 @@ A Git repository designed to track my dotfiles.
 * nvm
 * bullet train ZSH plugin
 
-## Contents
+## Dotfiles
 
 * .agignore
 * .bash_profile
@@ -18,12 +18,12 @@ A Git repository designed to track my dotfiles.
 * .tmux.conf.local
 * .vimrc
 * .vimrc.bundles
-* init.sh
 * .zshrc
 
 
 ## Installation
 
-The installation process is very easy, just run a `./init.sh`. This will remove whatever is in the place
-of the dotfiles, and create symbolic links to the version controlled ones. This way whenever they are updated
+`./init.sh`. 
+This will remove whatever is in the place of the dotfiles, and create symbolic
+links to the version controlled ones. This way whenever they are updated
 the updates will be tracked in Git.
