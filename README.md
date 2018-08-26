@@ -4,10 +4,12 @@ A Git repository designed to track my dotfiles.
 
 ## Prerequisites
 
+* iTerm 2
+* iTerm 2 "OneHalfDark" theme
 * Oh My Zsh
 * virtualenvwrapper
 * nvm
-* bullet train ZSH plugin
+* bullet train ZSH plugin (Roboto MD font)
 
 ## Dotfiles
 
