@@ -4,6 +4,6 @@
 [push]
     default = matching
 [alias]
-    lg = log --pretty=format:'%Cblue%h%Creset - %s%Cgreen [%cn]%C(cyan)%d' --decorate -10
+  lg = log --pretty=format:'%Cblue%h%Creset %cI - %Cgreen[%an]%Creset %s %d' --decorate -25
 [core]
     editor = vim

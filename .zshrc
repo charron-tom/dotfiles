@@ -1,28 +1,25 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH="$HOME/virtualenvs/bskube/bin:/usr/local/bin:$PATH"
+export PATH=$HOME/.bskube/bin:$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/thomascharron/.oh-my-zsh"
-export BULLETTRAIN_KCTX_KCONFIG="$HOME/.kube/config"
 
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="bullet-train"
+ZSH_THEME="robbyrussell"
 
-# Set list of themes to load
-# Setting this variable when ZSH_THEME=random
-# cause zsh load theme from this variable instead of
-# looking in ~/.oh-my-zsh/themes/
-# An empty array have no effect
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
+# If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
@@ -50,42 +47,51 @@ ZSH_THEME="bullet-train"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Which plugins would you like to load?
+# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  brew,
-  django,
-  docker,
-  gitfast,
-  git-extras,
-  jira,
-  mvn,
-  tmux,
-  virtualenvwrapper,
+  aws
+  docker
+  git
+  gitfast
+  tmux
+  virtualenvwrapper
   yarn
+  zsh-nvm
 )
 
 source $ZSH/oh-my-zsh.sh
+
 # User configuration
+export PYTHONDONTWRITEBYTECODE=1
+
+# Useful directories
+export WORKSPACE="$HOME/Workspace"
+export SANDBOX="$HOME/SANDBOX"
+export PORTAL_DIR="$WORKSPACE/portal"
+export PIPELINE_DIR="$WORKSPACE/bs-pipeline"
+
+# virtualenvwrapper
+export WORKON_HOME="$HOME/virtualenvs"
+source /usr/local/bin/virtualenvwrapper.sh
 
 # export MANPATH="/usr/local/man:$MANPATH"
-export KUBE_ENV_DISABLE_PROMPT=1
-export PYTHONDONTWRITEBYTECODE=1
-export NVM_DIR="$HOME/.nvm"
-export WORKON_HOME="$HOME/virtualenvs"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-source $NVM_DIR/nvm.sh
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
@@ -107,19 +113,12 @@ source $NVM_DIR/nvm.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias gp="git push origin $(git branch | grep "*" | awk '{print $2}')"
-alias portal="cd $HOME/Workspace/portal"
-alias s3="aws s3"
-alias vim="mvim -v"
-alias work="cd $HOME/Workspace"
-alias gco="git checkout"
-alias gup="git fetch origin --prune && git pull origin master"
-
-function pep() {
-  git diff -w master | pep8 --diff --max-line-length=100 | grep -v migrations $@
-}
-function lintj() {
-  mvn checkstyle:checkstyle -Dcheckstyle.includes="$@"
-}
-
-source /usr/local/bin/virtualenvwrapper.sh
+alias work="cd $WORKSPACE"
+alias portal="cd $PORTAL_DIR"
+alias pipeline="cd $PIPELINE_DIR"
+alias sandbox="cd $SANDBOX"
+alias build_static="cd $PORTAL_DIR; docker-compose -f docker-compose-static-builder.yml up"
+alias clean_containers="docker ps -a | tr -s ' ' | cut -f 1 -d ' ' | grep -v "CONTAINER" | xargs docker rm"
+alias clean_images="docker images | tr -s ' ' | cut -f 3 -d ' ' | grep -v "IMAGE" | xargs docker rmi"
+# BitSight aliases
+source "$WORKSPACE/infrav3/aliases.sh"

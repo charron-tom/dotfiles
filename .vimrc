@@ -71,8 +71,8 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
-colorscheme onehalfdark
-let g:airline_theme='onehalfdark'
+colorscheme brogrammer
+"let g:airline_theme='onehalfdark'
 " let macvim_skip_colorscheme=1
 
 """""""""""""""""""""""""
@@ -124,3 +124,19 @@ map <C-t> :TagbarToggle<CR>
 " let g:ctrlp_cmd = 'CtrlPMRUFiles'
 "
 let g:vimrubocop_config = '~/Workspace/chef/.rubocop.yml'
+let g:black_skip_string_normalization=1
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_python_checkers = ['pycodestyle']
+
+" Allow backspace
+set backspace=indent,eol,start
+
