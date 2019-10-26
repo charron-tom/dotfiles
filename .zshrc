@@ -1,7 +1,7 @@
-export PATH=$HOME/.bskube/bin:$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/thomascharron/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -70,6 +70,8 @@ plugins=(
   virtualenvwrapper
   yarn
   zsh-nvm
+  zsh-syntax-highlighting
+  zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -80,8 +82,6 @@ export PYTHONDONTWRITEBYTECODE=1
 # Useful directories
 export WORKSPACE="$HOME/Workspace"
 export SANDBOX="$HOME/SANDBOX"
-export PORTAL_DIR="$WORKSPACE/portal"
-export PIPELINE_DIR="$WORKSPACE/bs-pipeline"
 
 # virtualenvwrapper
 export WORKON_HOME="$HOME/virtualenvs"
@@ -114,11 +114,6 @@ source /usr/local/bin/virtualenvwrapper.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias work="cd $WORKSPACE"
-alias portal="cd $PORTAL_DIR"
-alias pipeline="cd $PIPELINE_DIR"
 alias sandbox="cd $SANDBOX"
-alias build_static="cd $PORTAL_DIR; docker-compose -f docker-compose-static-builder.yml up"
 alias clean_containers="docker ps -a | tr -s ' ' | cut -f 1 -d ' ' | grep -v "CONTAINER" | xargs docker rm"
 alias clean_images="docker images | tr -s ' ' | cut -f 3 -d ' ' | grep -v "IMAGE" | xargs docker rmi"
-# BitSight aliases
-source "$WORKSPACE/infrav3/aliases.sh"
