@@ -2,7 +2,9 @@
     name = Thomas Charron
     email = thomas.charron@bitsighttech.com
 [push]
-    default = matching
+  default = matching
+[fetch]
+  prune = true
 [alias]
   lg = log --pretty=format:'%Cblue%h%Creset %cI - %Cgreen[%an]%Creset %s %d' --decorate -25
 [core]
