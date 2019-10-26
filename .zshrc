@@ -66,10 +66,10 @@ plugins=(
   docker
   git
   gitfast
+  nvm
   tmux
   virtualenvwrapper
   yarn
-  zsh-nvm
   zsh-syntax-highlighting
   zsh-autosuggestions
 )
