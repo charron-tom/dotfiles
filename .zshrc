@@ -85,7 +85,6 @@ export SANDBOX="$HOME/SANDBOX"
 
 # virtualenvwrapper
 export WORKON_HOME="$HOME/virtualenvs"
-source /usr/local/bin/virtualenvwrapper.sh
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -117,3 +116,7 @@ alias work="cd $WORKSPACE"
 alias sandbox="cd $SANDBOX"
 alias clean_containers="docker ps -a | tr -s ' ' | cut -f 1 -d ' ' | grep -v "CONTAINER" | xargs docker rm"
 alias clean_images="docker images | tr -s ' ' | cut -f 3 -d ' ' | grep -v "IMAGE" | xargs docker rmi"
+
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi

@@ -1,6 +1,6 @@
 [user]
     name = Thomas Charron
-    email = thomas.charron@bitsighttech.com
+    email = tcharron24@gmail.com
 [push]
   default = matching
 [fetch]
@@ -8,4 +8,4 @@
 [alias]
   lg = log --pretty=format:'%Cblue%h%Creset %cI - %Cgreen[%an]%Creset %s %d' --decorate -25
 [core]
-    editor = vim
+    editor = mvim
