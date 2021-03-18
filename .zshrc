@@ -66,25 +66,15 @@ plugins=(
   docker
   git
   gitfast
-  nvm
-  tmux
-  virtualenvwrapper
-  yarn
   zsh-syntax-highlighting
   zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-export PYTHONDONTWRITEBYTECODE=1
-
 # Useful directories
 export WORKSPACE="$HOME/Workspace"
 export SANDBOX="$HOME/SANDBOX"
-
-# virtualenvwrapper
-export WORKON_HOME="$HOME/virtualenvs"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -92,11 +82,11 @@ export WORKON_HOME="$HOME/virtualenvs"
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='mvim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -116,7 +106,3 @@ alias work="cd $WORKSPACE"
 alias sandbox="cd $SANDBOX"
 alias clean_containers="docker ps -a | tr -s ' ' | cut -f 1 -d ' ' | grep -v "CONTAINER" | xargs docker rm"
 alias clean_images="docker images | tr -s ' ' | cut -f 3 -d ' ' | grep -v "IMAGE" | xargs docker rmi"
-
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
