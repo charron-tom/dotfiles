@@ -1,6 +1,6 @@
 [user]
   name = Thomas Charron
-  email = tcharron24@gmail.com
+  email = thomas.charron@bitsighttech.com
 [push]
   default = matching
 [fetch]
@@ -10,4 +10,4 @@
 [core]
   editor = mvim
   pager = cat
-  excludes = $HOME/.gitignore
+  excludesfile = /Users/thomsacharron/.gitignore
