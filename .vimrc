@@ -89,6 +89,15 @@ autocmd BufEnter * lcd %:p:h
 nnoremap <C-t> :TagbarToggle<CR>
 
 """""""""""""""""""""""""
+" ale config
+"""""""""""""""""""""""""
+let g:ale_fixers = {
+\ '*': ['remove_trailing_lines', 'trim_whitespace'],
+\ 'python': ['black', 'isort']
+\}
+let g:ale_fix_on_save = 1
+
+"""""""""""""""""""""""""
 " Begin syntastic config
 """""""""""""""""""""""""
 set statusline+=%#warningmsg#
