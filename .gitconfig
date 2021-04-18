@@ -10,4 +10,4 @@
 [core]
   editor = mvim
   pager = cat
-  excludesfile = /Users/thomsacharron/.gitignore
+  excludesfile = /Users/thomascharron/.gitignore

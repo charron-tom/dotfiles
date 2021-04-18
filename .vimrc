@@ -67,7 +67,9 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
-" Load plugins
+"""""""""""""""""""""""""
+" plugins
+"""""""""""""""""""""""""
 source ~/.vimrc.bundles
 
 colorscheme spaceduck
@@ -75,7 +77,7 @@ colorscheme spaceduck
 """""""""""""""""""""""""
 " Begin NERDTree config
 """""""""""""""""""""""""
-" Let Ctrl+n toggle NERDTree 
+" Let Ctrl+n toggle NERDTree
 nnoremap <C-n> :NERDTreeToggle<CR>
 
 " Open NERDTree to directory of file not current directory
