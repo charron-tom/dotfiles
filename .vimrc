@@ -15,15 +15,16 @@ set laststatus=2  " Always display status line
 set autowrite     " Automatically :write before running commands
 set mouse=a       " Enable use of mouse for all modes
 set autoindent    " Keep the same indent as the line you're currently on(Useful for README's etc.)
+set backspace=indent,eol,start " Allow backspace
 
 " Indentation settings for using 4 spaces instead of tabs.
-set softtabstop=2 
+set softtabstop=2
 set expandtab
-set shiftwidth=2 
+set shiftwidth=2
 " set smarttab
 
 " Open new split panes to the right and bottom which feels more natural
-set splitbelow 
+set splitbelow
 set splitright
 
 " Display extra whitespace
@@ -47,11 +48,6 @@ set wildignore+=*/coverage/**
 set wildignore+=*/logs/**
 set wildignore+=*/bin/**
 
-" Use the .vimrc.bundles file to load all Vundle plugins
-if filereadable(expand("~/.vimrc.bundles"))
-	source ~/.vimrc.bundles
-endif
-
 " Dont throw those annoying messages when w or q is accidentally capitalized
 " Just do what I meant
 :command WQ wq!
@@ -71,61 +67,28 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
-colorscheme brogrammer
-"let g:airline_theme='onehalfdark'
-" let macvim_skip_colorscheme=1
+" Load plugins
+source ~/.vimrc.bundles
+
+colorscheme spaceduck
 
 """""""""""""""""""""""""
 " Begin NERDTree config
 """""""""""""""""""""""""
-
 " Let Ctrl+n toggle NERDTree 
-map <C-n> :NERDTreeToggle<CR>
+nnoremap <C-n> :NERDTreeToggle<CR>
 
 " Open NERDTree to directory of file not current directory
 autocmd BufEnter * lcd %:p:h
 
 """""""""""""""""""""""""
-" Begin ack config
-"""""""""""""""""""""""""
-" Use ag instead of ack for searching
-let g:ackprg = 'ag --vimgrep'
-
-"""""""""""""""""""""""""
-" Begin vim-airline config
-"""""""""""""""""""""""""
-" let g:airline_section_c = '%{getcwd()}'
-"""""""""""""""""""""""""
 " Begin tagbar config
 """""""""""""""""""""""""
+nnoremap <C-t> :TagbarToggle<CR>
 
-" Let Ctrl+t toggle tagbar
-map <C-t> :TagbarToggle<CR>
-
-" OBSOLTE FOR NOW "
-
-" Key mappings
-" map <C-p>o :CtrlP<CR>
-" map gm :call cursor(0, len(getline('.'))/2)<CR>
-
-" go directly to line numbers in normal mode when numbers then
-" enter is typed
-" nnoremap <CR> G
-" nnoremap <C-S-T> :tabprevious<CR>
-" nnoremap <C-T>   :tabnext<CR>
-
-" shortcut to write file and get back to the spot in insert mode
-" imap jw <Esc>:w <CR>a
-
-" inoremap <C-S-T> <Esc>:tabprevious<CR>i
-" inoremap <C-T>   <Esc>:tabnext<CR>i
-
-
-" let g:ctrlp_cmd = 'CtrlPMRUFiles'
-"
-let g:vimrubocop_config = '~/Workspace/chef/.rubocop.yml'
-let g:black_skip_string_normalization=1
-
+"""""""""""""""""""""""""
+" Begin syntastic config
+"""""""""""""""""""""""""
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -135,8 +98,4 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-let g:syntastic_python_checkers = ['pycodestyle']
-
-" Allow backspace
-set backspace=indent,eol,start
-
+let g:syntastic_python_checkers = ['pylint', 'flake8']

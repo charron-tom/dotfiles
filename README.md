@@ -1,18 +1,23 @@
 # tcharron-dotfiles
 
-A Git repository designed to track my dotfiles.
+A Git repository designed to track my dotfiles. This will remove whatever
+is in the place of the dotfiles, and create symbolic links to the version
+controlled ones. This way whenever they are updated the updates will be
+tracked in Git.
 
 ## Installation
 
-`./init.sh`. 
-This will remove whatever is in the place of the dotfiles, and create symbolic
-links to the version controlled ones. This way whenever they are updated
-the updates will be tracked in Git.
+Install Homebrew
+`$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)`
 
-## Homebrew
+Install ohmyzsh
+`$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)`
 
-`brew install ag awscli k9s jq mysql nmap node nvm psql pstree pyenv pyenv-virtualenv tmux`
+Install dotfiles
+`./init.sh`
 
-## Python
+Install Homebrew packages
+`brew install ag awscli k9s jq minikube mysql nmap node nvm parquet-tools psql pstree pyenv pyenv-virtualenv tmux`
 
-`pip install pg_activity`
+[optional] Install Python packages
+`pip install black flake8 pg_activity`

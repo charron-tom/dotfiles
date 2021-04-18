@@ -1,31 +1,19 @@
-" Helper file to contain all the Vundle plugins I use
+" Helper file for all vim plugins
+call plug#begin('~/.vim/plugged')
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-Plugin 'VundleVim/Vundle.vim'           " Plugin Installer for vim
-
-Plugin 'mileszs/ack.vim'                " File searching with ag
-Plugin 'ctrlpvim/ctrlp.vim'             " Quickly opening and closing files
-Plugin 'Raimondi/delimitMate'           " Insert mode auto-completion for quotes,parens,brackets,etc.
-Plugin 'scrooloose/nerdtree'            " File browser
-Plugin 'scrooloose/syntastic'           " See pylint output in vim
-Plugin 'godlygeek/tabular'              " Code alignment and beautification
-Plugin 'majutsushi/tagbar'              " Code tags/navigation
-Plugin 'bling/vim-airline'              " Useful bar at the bottom
-Plugin 'tpope/vim-fugitive'             " Git wrapper
-Plugin 'plasticboy/vim-markdown'        " Markdown syntax highlighting
-Plugin 'posva/vim-vue'                  " Vue.js highlighting
-Plugin 'Valloric/YouCompleteMe'         " Autocompleting variables
+Plug 'preservim/nerdtree'      " File browser
+Plug 'preservim/tagbar'        " Code tags/navigation
+Plug 'vim-syntastic/syntastic' " See pylint output in vim
+Plug 'vim-airline/vim-airline' " Useful bar at the bottom
+Plug 'tpope/vim-fugitive'      " Git wrapper
+Plug 'plasticboy/vim-markdown' " Markdown syntax highlighting
+Plug 'ycm-core/YouCompleteMe'  " Autocompleting variables
 
 " Color schemes
-Plugin 'jacoborus/tender'
-Plugin 'fcevado/molokai_dark'
-Plugin 'raphamorim/lucario'
-Plugin 'marciomazza/vim-brogrammer-theme'
-Plugin 'sonph/onehalf', {'rtp': 'vim/'}
+Plug 'jacoborus/tender'
+Plug 'fcevado/molokai_dark'
+Plug 'raphamorim/lucario'
+Plug 'marciomazza/vim-brogrammer-theme'
+Plug 'pineapplegiant/spaceduck'
 
-" Why not
-" Plugin 'ngmy/vim-rubocop'
-
-call vundle#end()
+call plug#end()

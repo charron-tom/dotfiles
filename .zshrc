@@ -1,4 +1,4 @@
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH:/usr/local/go/bin
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -106,3 +106,11 @@ alias work="cd $WORKSPACE"
 alias sandbox="cd $SANDBOX"
 alias clean_containers="docker ps -a | tr -s ' ' | cut -f 1 -d ' ' | grep -v "CONTAINER" | xargs docker rm"
 alias clean_images="docker images | tr -s ' ' | cut -f 3 -d ' ' | grep -v "IMAGE" | xargs docker rmi"
+
+# pyenv autoload
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
+# enable fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
