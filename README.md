@@ -20,7 +20,7 @@ Install dotfiles
 `./init.sh`
 
 Install Homebrew packages
-`brew install ag amethyst awscli ctags k9s jq minikube mysql nmap node nvm parquet-tools psql pstree pyenv pyenv-virtualenv tmux`
+`brew install ag amethyst awscli ctags htop k9s jq minikube mysql nmap node nvm parquet-tools psql pstree pyenv pyenv-virtualenv tmux`
 
 [optional] Install Python packages
 `pip install black flake8 pg_activity`
