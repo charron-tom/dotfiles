@@ -8,6 +8,4 @@
 [alias]
   lg = log --pretty=format:'%Cblue%h%Creset %cI - %Cgreen[%an]%Creset %s %d' --decorate -25
 [core]
-  editor = mvim
-  pager = cat
   excludesfile = /Users/thomascharron/.gitignore
