@@ -66,6 +66,7 @@ plugins=(
   docker
   git
   gitfast
+  sublime
   zsh-syntax-highlighting
   zsh-autosuggestions
 )
