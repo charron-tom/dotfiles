@@ -9,3 +9,5 @@
   lg = log --pretty=format:'%Cblue%h%Creset %cI - %Cgreen[%an]%Creset %s %d' --decorate -25
 [core]
   excludesfile = /Users/thomascharron/.gitignore
+[pager]
+	diff = false
