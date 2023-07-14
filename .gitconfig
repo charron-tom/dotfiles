@@ -10,4 +10,5 @@
 [core]
   excludesfile = /Users/thomascharron/.gitignore
 [pager]
-	diff = false
+  diff = false
+  branch = false
