@@ -12,6 +12,7 @@ Plug 'plasticboy/vim-markdown' " Markdown syntax highlighting
 Plug 'ycm-core/YouCompleteMe'  " Autocompleting variables
 Plug 'dense-analysis/ale'      " Black, flake8, isort, etc
 Plug 'godlygeek/tabular'       " Text arrangement
+Plug 'ryanoasis/vim-devicons'  " Icons
 
 " Color schemes
 Plug 'jacoborus/tender'
