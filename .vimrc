@@ -17,6 +17,9 @@ set mouse=a       " Enable use of mouse for all modes
 set autoindent    " Keep the same indent as the line you're currently on(Useful for README's etc.)
 set backspace=indent,eol,start " Allow backspace
 
+" Helpful for rendering devicons
+set encoding=UTF-8
+
 " Indentation settings for using 4 spaces instead of tabs.
 set softtabstop=2
 set expandtab
