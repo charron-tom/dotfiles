@@ -1,0 +1,17 @@
+" Helper file for all vim plugins
+call plug#begin('~/.vim/plugged')
+
+Plug 'preservim/NERDTree'      " File browser
+Plug 'preservim/tagbar'        " Code tags/navigation
+Plug 'jiangmiao/auto-pairs'    " Brackets, parents, quotes
+Plug 'vim-airline/vim-airline' " Useful bar at the bottom
+Plug 'tpope/vim-fugitive'      " Git wrapper
+Plug 'plasticboy/vim-markdown' " Markdown syntax highlighting
+Plug 'ycm-core/YouCompleteMe'  " Autocompleting variables
+Plug 'godlygeek/tabular'       " Text arrangement
+Plug 'ryanoasis/vim-devicons'  " Icons
+
+" Color schemes
+Plug 'EdenEast/nightfox.nvim'
+
+call plug#end()
