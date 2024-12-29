@@ -9,11 +9,12 @@ when in reality the dotfiles have been evolving for many years.
 
 ## Installation
 
-"""sh
+```bash
+# Clone this repo
 cd $HOME
 mkdir Sandbox && cd Sandbox
 git clone git@github.com:charron-tom/dotfiles.git
 
 # Run the install script
 ./install.sh
-"""
+```
