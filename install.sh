@@ -107,7 +107,7 @@ echo
 ############
 # dotfiles #
 ############
-for file in `find . -type f -name ".*" | sed -e 's,^\./,,' | sort`; do
+for file in `find . -type f -name ".*" -maxdepth 1 | sed -e 's,^\./,,' | sort`; do
     # Remove the current one if it already exists
     dotfile="$HOME/$file"
     if [ ! -f "$dotfile" ]; then
