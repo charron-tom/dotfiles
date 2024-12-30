@@ -44,6 +44,23 @@ else
 fi
 echo
 
+if [ ! -d "$SANDBOX/dotfiles/oh-my-zsh/plugins/zsh-autosuggestions" ]; then
+  echo ">>> Installing zsh-syntax-highlighting."
+  git clone "https://github.com/zsh-users/zsh-autosuggestions" "$SANDBOX/dotfiles/oh-my-zsh/plugins/zsh-autosuggestions"
+else
+  echo ">>> zsh-autosuggestions already installed."
+fi
+echo
+
+if [ ! -d "$SANDBOX/dotfiles/oh-my-zsh/plugins/zsh-syntax-highlighting" ]; then
+  echo ">>> Installing zsh-syntax-highlighting."
+  git clone "https://github.com/zsh-users/zsh-syntax-highlighting" "$SANDBOX/dotfiles/oh-my-zsh/plugins/zsh-syntax-highlighting"
+else
+  echo ">>> zsh-syntax-highlighting already installed."
+fi
+echo
+
+
 
 ###########
 # folders #
