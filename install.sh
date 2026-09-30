@@ -7,12 +7,42 @@
 if ! command -v brew &> /dev/null; then
   echo ">>> Installing Homebrew."
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  brew update
-  brew install ag amethyst cmake colima ctags docker docker-compose docker-credential-helper dog htop git-lfs git-sizer glow gping k9s jpeg jq minikube mysql nmap node nvm onefetch postgresql@17 pre-commit pstree pyenv telnet tmux zsh-autosuggestions zsh-syntax-highlighting
-  brew cleanup
 else
   echo ">>> Homebrew already installed."
 fi
+brew update
+brew install \
+	amethyst \
+  awscli \
+	cmake \
+	colima \
+	ctags \
+	docker \
+	docker-compose \
+	docker-credential-helper \
+	herdr \
+	htop \
+	git-lfs \
+	git-sizer \
+	glow \
+	gping \
+	k9s \
+	jpeg \
+	jq \
+	minikube \
+	mise \
+	neovim \
+	nmap \
+	onefetch \
+	prek \
+	pstree \
+	ripgrep \
+	telnet \
+	tmux \
+	zellij \
+	zsh-autosuggestions \
+	zsh-syntax-highlighting
+brew cleanup
 echo
 
 
